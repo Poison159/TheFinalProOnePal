@@ -1,0 +1,12 @@
+﻿@model ProOnePal.Models.Result
+<div>
+    <p>
+        @using (Html.BeginForm("ResultsInfo", "Results", FormMethod.Post))
+            {
+               <div style="font-family:'Segoe Print'; float:left; padding-top:0px;">
+                    @ViewBag.homeTeam goals : @Html.TextBox("homeGoals")  @ViewBag.awayTeam goals : @Html.TextBox("awayGoals")
+                    <input type="submit" value="submit" />
+                </div>
+            }
+        </p>
+</div>

@@ -1,0 +1,42 @@
+﻿@model ProOnePal.Models.Result
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Result</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fixture.fixtureName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fixture.fixtureName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.homeGoals)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.homeGoals)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.awayaGoals)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.awayaGoals)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,16 @@
+FCB,barcelona
+R.Madrid,madrid
+PSG,south france
+Byern,munich
+Bvb,munich
+Arsenal,museryside
+Deportivo,barcelona
+ACMilan,milan
+Inter,milan
+FCPorto,portugal
+Monaco,monaco
+Spurs,museryside
+Galetasery, istambul
+Roma,rome
+ManU,london
+ManCity,london

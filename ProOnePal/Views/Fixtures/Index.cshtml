@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ProOnePal.Models.Fixture>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <p style="font-family:'Segoe Print'; padding-top:0px; font-size:larger" class="text-center top-right">league Fixtures</p>
+</div>
+
+
+<div class="text-center" style="padding-left:100px;">
+    @foreach (var item in Model.OrderByDescending(x => x.date))
+    {
+        <hr>
+        <div class="row">
+
+            <div class="col-md-6 label-info" style="border-radius:10px; height:100px; width: 300px; background-color:#f9f9f9">
+                <div>
+                    <h3 style="font-family:'Segoe Print'; font-size:larger">@Html.DisplayFor(modelItem => item.homeTeam)</h3>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="text-center text-info">
+                    <p style="padding-bottom:0px; font-family:'Segoe Print'; font-size:large">@item.pitch @@ @item.time.Hour:@item.time.Minute </p>
+                    <h4 style="padding-top:0px; font-family:'Segoe Print'; font-size:large"> (@item.tournament.name) @item.date.Date.ToShortDateString()</h4>
+                    <div>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id }) |
+                        @Html.ActionLink("Create Result", "CreateResult", new { id = item.id })
+                    </div>
+                </div>        
+            </div>
+
+            <div class="col-md-3 label-info " style="border-radius:10px; height:100px; width: 300px; background-color:#f9f9f9">
+                <h3 style="font-family:'Segoe Print'; font-size:larger">@Html.DisplayFor(modelItem => item.awayTeam)</h3>
+            </div>
+        </div>
+      
+    }
+
+</div>

@@ -1,0 +1,88 @@
+﻿@model ProOnePal.Models.Tournament
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="jumbotron">
+    <p style="font-family:'Segoe Print'; padding-top:0px; font-size:larger" class="text-center top-right">@Model.name Details</p>
+</div>
+
+
+<div class="row">
+    <div class="col-md-3">
+        <p><a class="btn btn-default" style="background-image:url('/Content/crack.jpg')" href="~/Results/">&raquo; Recent Results</a></p>
+    </div>
+
+    <div class="col-lg-3 pull-right">
+        <p><a class="btn btn-default" style="background-image:url('/Content/crack.jpg')" href="~/Fixtures/">Upcoming fixtures &raquo;</a></p>
+    </div>
+</div>
+
+<div class="row">
+
+    @foreach (var item in ViewBag.Groups)
+    {
+
+        <div class="col-md-6">
+            <h4 class="text-center label-primary" style="border-radius:10px;">Group @item.Text</h4>
+            <table class="table table-condensed table-striped table-bordered">
+                <tr>
+                    <th>
+                        Team Name
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.enteredTeams.First().tournamentStats.First().gamesPlayed)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.enteredTeams.First().tournamentStats.First().gamesWon)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.enteredTeams.First().tournamentStats.First().gamesDrawn)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.enteredTeams.First().tournamentStats.First().gamesLost)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.enteredTeams.First().tournamentStats.First().points)
+                    </th>
+
+                </tr>
+                @foreach (var team in Model.enteredTeams)
+                {
+                    foreach(var tStat in team.tournamentStats.Where(x => x.group == item.Text && x.tournamentName == Model.name))
+                    {
+                        <tr>
+                            <td>
+                                <a href="@Url.Action("Details", "Teams", new { id = team.id })">@team.name</a>
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => tStat.gamesPlayed)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => tStat.gamesWon)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => tStat.gamesDrawn)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => tStat.gamesLost)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => tStat.points)
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+
+    }
+
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

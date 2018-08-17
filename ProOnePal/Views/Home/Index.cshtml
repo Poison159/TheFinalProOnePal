@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+
+<div class="jumbotron">
+    <p class="text-center " style="font-family:'Segoe Print'; border-radius:5px;">One Pal Fan Zone</p>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <img id="teamsImage" src="~/Content/sans-506.jpg" style="height:500px; width:850px; border-radius:50px;" />
+        
+        
+    </div>
+    <div class="col-md-3 pull-right">
+        <h3 style="font-family:'Segoe Print'"> View all the players and they're perfomances</h3>
+        <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index","Players")">View Players </a></p>
+        <h3 style="font-family:'Segoe Print'">Take a look at the league standing and team details</h3>
+        <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index","Teams")">view Table</a></p>
+        <h3 style="font-family:'Segoe Print'">Chart breakdown of the various players and teams</h3>
+        <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index","Tournaments")">View Tournaments</a></p>
+    </div>
+</div>
+<script src="~/Scripts/homeScript.js"></script>

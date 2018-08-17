@@ -1,0 +1,9 @@
+FCB,Barcelona
+R.Madrid,Madrid
+PSG,South France
+Byern,Munich
+Bvb,Munich
+Arsenal,museryside
+Deportivo,Barcelona
+ACMilan,Milan
+inter,Milan

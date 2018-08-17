@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ProOnePal.Models.Result>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <p style="font-family:'Segoe Print'; padding-top:0px; font-size:larger" class="text-center top-right">All Results</p>
+</div>
+@foreach (var item in Model)
+{
+
+    <div class="row">
+
+        <div class="col-md-3" style="border-radius:10px; height:50px;font-family:'Segoe Print'; width: 100px; background-color:#f9f9f9">
+            <p>@item.fixture.tournament.name</p>
+        </div>
+
+        <div class="col-md-3" style="border-radius:10px; height:50px; width: 300px; background-image:url('../../Content/crack.jpg')">
+            <div class=" pull-left" style="font-family:'Segoe Print'; font-size:large" >  @item.fixture.fixtureName.Split(',').First()   @item.homeGoals - @item.fixture.fixtureName.Split(',').ElementAt(1)  @item.awayaGoals</div>
+            <div class="pull-right">@item.fixture.date.ToShortDateString() - @item.fixture.pitch</div>
+        </div>
+        
+        <div class="col-md-3 list-inline" style="border-radius:10px; height:80px;font-family:'Segoe Print'; font-size:x-small; width: 100px; background-color:#f9f9f9">
+
+            @foreach (var scorer in item.scorers)
+            {
+                <p>@scorer.player.name</p>
+            }
+        </div>
+        <div class="col-md-3">
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+        </div>
+    </div>
+}
+
+

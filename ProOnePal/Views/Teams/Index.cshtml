@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ProOnePal.Models.Team>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <p style="font-family:'Segoe Print'; padding-top:0px; font-size:larger" class="text-center top-right">All Teams</p>
+</div>
+<div style="padding-top:0px; background-color:transparent">
+    <div class="row">
+        <div class="col-lg-4 pull-right">
+            @using (Html.BeginForm("Index", "Teams", FormMethod.Get))
+            {
+                <p style="font-family:'Segoe Print'; float:left; padding-top:0px;">
+                    Name @Html.TextBox("searchName")   Kasi: @Html.DropDownList("kasi", "All")
+                    <input type="submit" value="search" />
+                </p>
+            }
+        </div>
+    </div>   
+</div>
+
+<table class="table table-bordered table-striped" style="padding-top:0px;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kasi)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kasi)
+        </td>
+       
+        @if (Request.IsAuthenticated)
+        {
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.id })|
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Add Player", "AddPlayer", new { id = item.id }) |
+                @Html.ActionLink("Players", "CurrentTeamPlayers", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        }
+        else
+        {
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.id })
+            </td>
+        }
+
+    </tr>
+}
+
+</table>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { @class = "btn-btn-default" })
+</p>

@@ -1,0 +1,40 @@
+﻿@model ProOnePal.Models.Result
+
+<div class="jumbotron">
+    <p style="font-family:'Segoe Print'; padding-top:0px; font-size:larger" class="text-center top-right">Result Details</p>
+</div>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fixture.stage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fixture.stage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.homeGoals)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.homeGoals)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.awayaGoals)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.awayaGoals)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Add Scorers", "GoalsInfo", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

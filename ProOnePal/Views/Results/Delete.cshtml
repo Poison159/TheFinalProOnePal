@@ -1,0 +1,48 @@
+﻿@model ProOnePal.Models.Result
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Result</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fixture.fixtureName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fixture.fixtureName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.homeGoals)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.homeGoals)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.awayaGoals)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.awayaGoals)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ProOnePal.Models.Tournament>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <p style="font-family:'Segoe Print'; padding-top:0px; font-size:larger" class="text-center top-right">All Tournaments</p>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id }) |
+            @Html.ActionLink("Add Team", "AddTeam", new { id = item.id })|
+            @Html.ActionLink("Add Fixture", "AddFixture", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>
